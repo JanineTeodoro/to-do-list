@@ -1,11 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Image, GestureResponderEvent, Modal, StyleSheet, Text, TouchableOpacity, View, Alert, Dimensions } from 'react-native';
+
+const windowWidth = Dimensions.get("window").width
 
 export default function App() {
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image
+        source={require('./assets/to-do-list.png')}
+        style={styles.botaoDeImagem}/>
+      <TouchableOpacity onPress={() => Alert.alert("Clicado!!")}>
+      <View style={styles.containerBotao}>
+        <Text style={styles.botao}>Entrar</Text>
+      </View>
+    </TouchableOpacity>
     </View>
   );
 }
@@ -15,6 +25,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
+  containerBotao: {
+    borderWidth: 1,
+  },
+  botao: {
+    fontSize: 14, 
+    backgroundColor: "#F79E89",
+    textTransform: "uppercase",
+    padding: 14,
+    width: windowWidth * .8,
+    textAlign: "center",
+    color: "#ffffff",
+    //alterar fonte para Montserrat
+  },
+  botaoDeImagem: {
+  },
+
 });
