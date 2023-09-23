@@ -10,25 +10,40 @@ export default function TodoList() {
   
 
   return (
+    
     <View style={styles.container}>
-      <Image
-        source={require('./../../assets/to-do-list.png')}/>
+      <Image style={styles.todo} source={require('../../assets/todo-list.png')} />
+      {/* <Image
+        source={require('../../assets/to-do-list.png')}/> */}
       {/* <TouchableOpacity onPress={() => Alert.alert("Clicado!!")}>
       <View style={styles.containerBotao}>
         <Text style={styles.botao}>Entrar</Text>
       </View>
     </TouchableOpacity> */}
-    <Botao title={'SAIR'}></Botao>
+    <TouchableOpacity style={styles.add}>
+      <Image source={require('../../assets/add-button.png')} />
+    </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    position: 'relative',
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'space-around',
   },
+  todo: {
+    objectFit: 'contain',
+    top: 5,
+    left: 5,
+    position: 'absolute',
+  },
+  add: {
+    bottom: 25,
+    right: 25,
+    position: 'absolute'
+  }
     //alterar fonte para Montserrat
 });

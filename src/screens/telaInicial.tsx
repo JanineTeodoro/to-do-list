@@ -3,20 +3,21 @@ import React, { useState } from 'react';
 import { Image, GestureResponderEvent, Modal, StyleSheet, Text, TouchableOpacity, View, Alert, Dimensions } from 'react-native';
 import Botao from '../components/botao/botao';
 import { useNavigation } from "@react-navigation/native";
+import { propsStack } from '../routes/stack';
 
 const windowWidth = Dimensions.get("window").width
 
 export default function TelaInicial() {
 
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<propsStack>();
   const handlePress = () => {
     navigation.navigate("TodoList")
   }
   return (
     <View style={styles.container}>
       <Image
-        source={require('./../../assets/to-do-list.png')}/>
-    <Botao onPress={handlePress} title={'Entrar 1'}></Botao>
+        source={require('./../../assets/todo-list-logo.png')}/>
+    <Botao onPress={handlePress} title={'Entrar'}></Botao>
     </View>
     
   );
