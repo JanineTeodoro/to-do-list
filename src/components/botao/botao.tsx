@@ -1,13 +1,15 @@
 import React from 'react';
 import { Button, ContainerButton, TextButton } from './botao-style';
+import { GestureResponderEvent } from 'react-native';
 
 type ButtonProps = {
   title: string, 
+  onPress?: (event: GestureResponderEvent) => void
 }
-const Botao: React.FC <ButtonProps> = ({title}) => {
+const Botao: React.FC <ButtonProps> = ({title, onPress}) => {
   return (
     <ContainerButton>
-      <Button>
+      <Button onPress={onPress}>
         <TextButton>{title}</TextButton>
       </Button>
     </ContainerButton>

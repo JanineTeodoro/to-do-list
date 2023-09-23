@@ -2,23 +2,24 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Image, GestureResponderEvent, Modal, StyleSheet, Text, TouchableOpacity, View, Alert, Dimensions } from 'react-native';
 import Botao from '../components/botao/botao';
-import { useNavigation } from "@react-navigation/native";
 
 const windowWidth = Dimensions.get("window").width
 
-export default function TelaInicial() {
+export default function TodoList() {
 
-  const navigation = useNavigation<any>();
-  const handlePress = () => {
-    navigation.navigate("TodoList")
-  }
+  
+
   return (
     <View style={styles.container}>
       <Image
         source={require('./../../assets/to-do-list.png')}/>
-    <Botao onPress={handlePress} title={'Entrar 1'}></Botao>
+      {/* <TouchableOpacity onPress={() => Alert.alert("Clicado!!")}>
+      <View style={styles.containerBotao}>
+        <Text style={styles.botao}>Entrar</Text>
+      </View>
+    </TouchableOpacity> */}
+    <Botao title={'SAIR'}></Botao>
     </View>
-    
   );
 }
 
