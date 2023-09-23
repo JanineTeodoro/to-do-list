@@ -1,13 +1,16 @@
 import React from 'react';
-import { ButtonAdd, ContainerButtonAdd, TextButtonAdd } from "./botao-style";
+import { Button, ContainerButton, TextButton } from './botao-style';
 
-const Botao = (props: { title: string; width?: string; color: string }) => {
+type ButtonProps = {
+  title: string, 
+}
+const Botao: React.FC <ButtonProps> = ({title}) => {
   return (
-    <ContainerButtonAdd>
-      <ButtonAdd color={props.color}>
-        <TextButtonAdd>{props.title}</TextButtonAdd>
-      </ButtonAdd>
-    </ContainerButtonAdd>
+    <ContainerButton>
+      <Button>
+        <TextButton>{title}</TextButton>
+      </Button>
+    </ContainerButton>
   );
 };
 

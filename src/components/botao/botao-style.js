@@ -1,13 +1,22 @@
 import styled from "styled-components/native";
+import { Dimensions } from "react-native";
 
-export const ContainerButtonAdd = styled.View`
+const windowWidth = Dimensions.get("window").width
+
+export const ContainerButton = styled.View`
   display: flex;
 `;
 
-export const ButtonAdd = styled.TouchableOpacity`
-  background: ${({ color }) => color};
-  width: ${({ width }) => (width !== "" ? width : "200px")};
-  height: 10px;
+export const Button = styled.TouchableOpacity`
+  width: ${windowWidth * .8}px;
+  backgroundColor: #F79E89;
+  padding: 14px;
 `;
 
-export const TextButtonAdd = styled.Text``;
+export const TextButton = styled.Text`
+  textAlign: center;
+  color: #ffffff;
+  textTransform: uppercase;
+  fontSize: 20px;
+  fontWeight: 800;
+`;
