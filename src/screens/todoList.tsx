@@ -1,22 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Image, GestureResponderEvent, Modal, StyleSheet, Text, TouchableOpacity, View, Alert, Dimensions } from 'react-native';
-import Botao from '../components/botao/botao';
+import { Image, StyleSheet, Text, TouchableOpacity, View, Dimensions } from 'react-native';
 import ToDo from '../components/todo/todo';
+import uuid from 'react-native-uuid';
 
 const windowWidth = Dimensions.get("window").width
 type ToDo = {
+  id: string | number[],
   title: string,
   description: string,
   done: boolean,
 }
 
-const initialState = [{title: "Contratar a Janine", description: "Verificar documentos necessários.", done: false}, {title: "Informação diferente", description: "Verificar documentos necessários.", done: true}]
+const initialState = [
+  {id: uuid.v4(), title: "Contratar a Janine", description: "Verificar documentos necessários.", done: false}, 
+  {id: uuid.v4(), title: "Informação diferente", description: "Verificar documentos necessários.", done: true}]
 
 export default function TodoList() {
 
   const [toDoList, setToDoList] = useState<Array<ToDo>>([...initialState])
-  const toggleDone = (toggleTodo) => {}
+
+  const toggleDone = (todoId: string) => {
+    const newTodoList = toDoList.map(todo => todo.id === todoId ? {...todo, done: !todo.done} : todo)
+    setToDoList(newTodoList)
+  }
+
   return (
     
     <View style={styles.container}>
@@ -27,10 +35,10 @@ export default function TodoList() {
         <Image source={require('../../assets/list-of-todo.png')}/>
       </View>
       <View style={styles.list}>
-        {toDoList.map((todo, i)=> {
-          const {title, description, done} = todo
+        {toDoList.map(todo => {
+          const {id, title, description, done} = todo
           return(
-            <ToDo key={i} title={title} description={description} done={done} toggleDone={toggleDone} />
+            <ToDo key={`${id}`} title={title} description={description} done={done} toggleDone={toggleDone} id={`${id}`}/>
           )
         } )}
       </View>
