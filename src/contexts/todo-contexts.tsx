@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { Alert } from 'react-native';
 import uuid from 'react-native-uuid';
 
 type TodoContextProps = {

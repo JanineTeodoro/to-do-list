@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AddContainer, TextInputDescription, TextInputTitle } from './addTodo-style'
-import { Image } from 'react-native'
+import { Alert, Image } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from '../routes/stack';
 import BotaoAdd from '../components/botaoAdd/botaoAdd';
@@ -15,6 +15,10 @@ export default function AddTodo() {
   const navigation = useNavigation<propsStack>();
   const {createTodo} = useTodo();
   const handlePress = () => {
+    if(title.length <= 0) {
+      Alert.alert("Título obrigatório!")
+      return;
+    }
     createTodo(title, description)
     navigation.navigate("TodoList")
   }

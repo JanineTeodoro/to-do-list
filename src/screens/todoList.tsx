@@ -38,18 +38,19 @@ export default function TodoList() {
         <Image source={require('../../assets/list-of-todo.png')}/>
       </View>
       <View style={styles.list}>
-        {todoList.map(todo => {
-          const {id, title, description, done} = todo
-          return(
-            <ToDo key={`${id}`} title={title} description={description} done={done} toggleDone={toggleDone} id={`${id}`}/>
-          )
-        })}
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ gap: 20}}>
+          {todoList.map(todo => {
+            const {id, title, description, done} = todo
+            return(
+              <ToDo key={`${id}`} title={title} description={description} done={done} toggleDone={toggleDone} id={`${id}`}/>
+            )
+          })}
+        </ScrollView>
       </View>
       <TouchableOpacity onPress={handlePress} style={styles.add}>
         <Image source={require('../../assets/add-button.png')} />
       </TouchableOpacity>
     </View>
-    //Adicionar ScrollView
   );
 }
 
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingTop: 40,
     gap: 20,
+    paddingBottom: 40,
   },
   add: {
     bottom: 25,
