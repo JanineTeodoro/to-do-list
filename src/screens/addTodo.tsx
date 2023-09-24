@@ -1,50 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Image, GestureResponderEvent, Modal, StyleSheet, Text, TouchableOpacity, View, Alert, Dimensions } from 'react-native';
-import Botao from '../components/botao/botao';
+import { AddContainer, TextInputDescription, TextInputTitle } from './addTodo-style'
+import { Image } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from '../routes/stack';
-import { TextInput } from 'react-native';
 import BotaoAdd from '../components/botaoAdd/botaoAdd';
+import { ScrollView } from 'react-native';
+import { useTodo } from '../contexts/todo-contexts';
 
-const windowWidth = Dimensions.get("window").width
 
 export default function AddTodo() {
 
-  const [title, setTitle] = useState<string>()
-  const [description, setDescription] = useState<string>()
+  const [title, setTitle] = useState<string>("")
+  const [description, setDescription] = useState<string>("")
   const navigation = useNavigation<propsStack>();
+  const {createTodo} = useTodo();
   const handlePress = () => {
+    createTodo(title, description)
     navigation.navigate("TodoList")
   }
   return (
-    <View>
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+    <AddContainer>
+      <TextInputTitle
+        style={{ height: 40, borderColor: '#fff', borderWidth: 1 }}
         placeholder="Título"
+        placeholderTextColor={'#EEEEEE'}
         onChangeText={setTitle}
         value={title}
       />
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+      <TextInputDescription
+        style={{ height: 40, borderColor: '#fff', borderWidth: 1 }}
         placeholder="Descrição"
+        placeholderTextColor={'#EEEEEE'}
         multiline
-        numberOfLines={6}
         onChangeText={setDescription}
         value={description}
       />
-    <BotaoAdd onPress={handlePress} title={'Adicionar'}></BotaoAdd>
-    </View>
-    
+      <BotaoAdd onPress={handlePress} title={'Adicionar'}></BotaoAdd>
+      <Image source={require('./../../assets/person-checking.png')} />
+    </AddContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
-    //alterar fonte para Montserrat
-});

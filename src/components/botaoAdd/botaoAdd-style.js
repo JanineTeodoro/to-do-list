@@ -6,7 +6,7 @@ const windowWidth = Dimensions.get("window").width
 export const ContainerButton = styled.View`
   background: #fff;
   borderRadius: 12px;
-  width: ${windowWidth * .8}px;
+  width: ${windowWidth * .9}px;
 `;
 
 export const Button = styled.TouchableOpacity`

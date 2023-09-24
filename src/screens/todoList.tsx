@@ -1,22 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View, Dimensions } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, Dimensions, ScrollView } from 'react-native';
 import ToDo from '../components/todo/todo';
-import uuid from 'react-native-uuid';
+
 import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../routes/stack';
+import { useTodo } from '../contexts/todo-contexts';
 
-const windowWidth = Dimensions.get("window").width
 type ToDo = {
   id: string | number[],
   title: string,
   description: string,
   done: boolean,
 }
-
-const initialState = [
-  {id: uuid.v4(), title: "Contratar a Janine", description: "Verificar documentos necessários.", done: false}, 
-  {id: uuid.v4(), title: "Informação diferente", description: "Verificar documentos necessários.", done: true}]
 
 export default function TodoList() {
 
@@ -25,15 +21,15 @@ export default function TodoList() {
     navigation.navigate("AddTodo")
   }
 
-  const [toDoList, setToDoList] = useState<Array<ToDo>>([...initialState])
+  const {todoList, setTodoList} = useTodo()
+
 
   const toggleDone = (todoId: string) => {
-    const newTodoList = toDoList.map(todo => todo.id === todoId ? {...todo, done: !todo.done} : todo)
-    setToDoList(newTodoList)
+    const newTodoList = todoList.map(todo => todo.id === todoId ? {...todo, done: !todo.done} : todo)
+    setTodoList(newTodoList)
   }
 
   return (
-    
     <View style={styles.container}>
       <Image style={styles.todo} source={require('../../assets/todo-list.png')} />
       <View style={styles.listoftodo}>
@@ -42,17 +38,18 @@ export default function TodoList() {
         <Image source={require('../../assets/list-of-todo.png')}/>
       </View>
       <View style={styles.list}>
-        {toDoList.map(todo => {
+        {todoList.map(todo => {
           const {id, title, description, done} = todo
           return(
             <ToDo key={`${id}`} title={title} description={description} done={done} toggleDone={toggleDone} id={`${id}`}/>
           )
-        } )}
+        })}
       </View>
       <TouchableOpacity onPress={handlePress} style={styles.add}>
         <Image source={require('../../assets/add-button.png')} />
       </TouchableOpacity>
     </View>
+    //Adicionar ScrollView
   );
 }
 
@@ -86,5 +83,5 @@ const styles = StyleSheet.create({
     right: 25,
     position: 'absolute'
   }
-    //alterar fonte para Montserrat
+    //Alterar fonte para Montserrat
 });
