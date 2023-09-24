@@ -16,7 +16,6 @@ const ToDo: React.FC <ToDoProps> = ({id, title, description, done, toggleDone}) 
     <TouchableHighlight onPress={() => toggleDone(id)}>
       <View>
         {done ? <Image source={require('../../../assets/checked.png')} /> : <Image source={require('../../../assets/unchecked.png')} />}
-        
         <Title>{title}</Title>
         <Description>{description}</Description>
       </View>

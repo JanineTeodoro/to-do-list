@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View, Dimensions } from 'react-native';
 import ToDo from '../components/todo/todo';
 import uuid from 'react-native-uuid';
+import { useNavigation } from '@react-navigation/native';
+import { propsStack } from '../routes/stack';
 
 const windowWidth = Dimensions.get("window").width
 type ToDo = {
@@ -17,6 +19,11 @@ const initialState = [
   {id: uuid.v4(), title: "Informação diferente", description: "Verificar documentos necessários.", done: true}]
 
 export default function TodoList() {
+
+  const navigation = useNavigation<propsStack>();
+  const handlePress = () => {
+    navigation.navigate("AddTodo")
+  }
 
   const [toDoList, setToDoList] = useState<Array<ToDo>>([...initialState])
 
@@ -42,8 +49,8 @@ export default function TodoList() {
           )
         } )}
       </View>
-      <TouchableOpacity style={styles.add}>
-      <Image source={require('../../assets/add-button.png')} />
+      <TouchableOpacity onPress={handlePress} style={styles.add}>
+        <Image source={require('../../assets/add-button.png')} />
       </TouchableOpacity>
     </View>
   );

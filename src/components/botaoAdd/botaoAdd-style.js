@@ -4,7 +4,7 @@ import { Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width
 
 export const ContainerButton = styled.View`
-  background: #F79E89;
+  background: #fff;
   borderRadius: 12px;
   width: ${windowWidth * .8}px;
 `;
@@ -16,8 +16,7 @@ export const Button = styled.TouchableOpacity`
 
 export const TextButton = styled.Text`
   textAlign: center;
-  color: #fff;
+  color: #F79E89;
   textTransform: uppercase;
   fontSize: 20px;
-  textShadow: 0 4px 13px #00000040;
 `;
