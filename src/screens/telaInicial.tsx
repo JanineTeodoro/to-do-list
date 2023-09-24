@@ -4,10 +4,15 @@ import { Image, GestureResponderEvent, Modal, StyleSheet, Text, TouchableOpacity
 import Botao from '../components/botao/botao';
 import { useNavigation } from "@react-navigation/native";
 import { propsStack } from '../routes/stack';
-
-const windowWidth = Dimensions.get("window").width
+import { useFonts, Montserrat_400Regular, Montserrat_500Medium, Montserrat_600SemiBold } from '@expo-google-fonts/montserrat';
 
 export default function TelaInicial() {
+
+  const [fontLoaded] = useFonts({
+    Montserrat_400Regular, 
+    Montserrat_500Medium, 
+    Montserrat_600SemiBold
+  })
 
   const navigation = useNavigation<propsStack>();
   const handlePress = () => {
@@ -30,5 +35,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-    //alterar fonte para Montserrat
 });

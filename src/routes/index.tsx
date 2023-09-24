@@ -10,9 +10,9 @@ const { Navigator, Screen } = createNativeStackNavigator();
 export default function () {
   return (
     <Navigator>
-      <Screen name="TelaInicial" component={TelaInicial} />
-      <Screen name="TodoList" component={TodoList} />
-      <Screen name="AddTodo" component={AddTodo}/>
+      <Screen name="TelaInicial" component={TelaInicial} options={{headerShown: false}}/>
+      <Screen name="TodoList" component={TodoList} options={{headerShown: false}}/>
+      <Screen name="AddTodo" component={AddTodo} options={{title: "Adicione uma nova tarefa"}}/>
     </Navigator>
   );
 }

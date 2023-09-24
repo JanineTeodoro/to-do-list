@@ -1,8 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import {useFonts, Montserrat_400Regular, Montserrat_500Medium, Montserrat_600SemiBold} from '@expo-google-fonts/montserrat'
+import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View, Dimensions, ScrollView } from 'react-native';
 import ToDo from '../components/todo/todo';
-
 import { useNavigation } from '@react-navigation/native';
 import { propsStack } from '../routes/stack';
 import { useTodo } from '../contexts/todo-contexts';
@@ -15,6 +14,12 @@ type ToDo = {
 }
 
 export default function TodoList() {
+
+  const [fontLoaded] = useFonts({
+    Montserrat_400Regular, 
+    Montserrat_500Medium, 
+    Montserrat_600SemiBold
+  })
 
   const navigation = useNavigation<propsStack>();
   const handlePress = () => {
@@ -60,13 +65,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'flex-start',
-    paddingTop: 75,
+    paddingTop: 120,
     paddingLeft: 20,
     paddingRight: 20,
   },
   todo: {
     objectFit: 'contain',
-    top: 20,
+    top: 65,
     left: 20,
     position: 'absolute',
   },

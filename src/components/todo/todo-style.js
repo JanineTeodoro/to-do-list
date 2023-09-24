@@ -22,12 +22,12 @@ export const Image = styled.Image`
 export const Title = styled.Text`
   color: #fff;
   fontSize: 16px;
-  fontWeight: 800;
+  fontFamily: Montserrat_600SemiBold;
 `;
 
 export const Description = styled.Text`
   textAlign: left;
   color: #fff;
   fontSize: 14px;
-  
+  fontFamily: Montserrat_400Regular;
 `;

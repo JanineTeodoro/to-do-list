@@ -10,7 +10,6 @@ export const ContainerButton = styled.View`
 `;
 
 export const Button = styled.TouchableOpacity`
-  
   padding: 14px;
 `;
 
@@ -19,5 +18,5 @@ export const TextButton = styled.Text`
   color: #fff;
   textTransform: uppercase;
   fontSize: 20px;
-  textShadow: 0 4px 13px #00000040;
+  fontFamily: Montserrat_500Medium;
 `;

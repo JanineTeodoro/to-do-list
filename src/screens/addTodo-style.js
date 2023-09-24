@@ -22,6 +22,7 @@ export const TextInputTitle = styled.TextInput`
  padding: 10px;
  flex: 1 0 100%;
  fontSize: 16px;
+ fontFamily: Montserrat_400Regular;
 `
 
 export const TextInputDescription = styled.TextInput`
@@ -34,5 +35,6 @@ padding: 10px;
 flex: 1 0 100%;
 fontSize: 16px;
 textAlignVertical: top;
+fontFamily: Montserrat_400Regular;
 `
 

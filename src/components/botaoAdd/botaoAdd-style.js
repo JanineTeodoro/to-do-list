@@ -19,4 +19,5 @@ export const TextButton = styled.Text`
   color: #F79E89;
   textTransform: uppercase;
   fontSize: 20px;
+  fontFamily: Montserrat_500Medium;
 `;
