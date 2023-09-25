@@ -9,11 +9,8 @@ Bem-vindo ao repositório do To-do List! Este é um projeto de aplicativo móvel
 - **Recurso 3**: Marcar como feito ou não feito.
 
 ## Capturas de Tela
-<div style="display: flex; gap: 10px; max-width: 100%">
-<img alt="Tela inicial" src="https://i.imgur.com/gPpHspN.jpg">
-<img alt="Tela inicial" src="https://i.imgur.com/tFQ3xcA.jpg">
-<img alt="Tela inicial" src="https://i.imgur.com/STuPFB8.jpg">
-</div>
+
+<img alt="Tela inicial" src="https://i.imgur.com/gPpHspN.jpg" width=250> <img alt="Tela inicial" src="https://i.imgur.com/tFQ3xcA.jpg" width=250> <img alt="Tela inicial" src="https://i.imgur.com/STuPFB8.jpg" width=250>
 
 ## Tecnologias Utilizadas
 
